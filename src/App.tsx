@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { open } from "@tauri-apps/plugin-dialog";
+import { invoke } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 
 function App() {
   const [path, setPath] = useState<string | null>(null);
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
 
   const file = async () => {
     const directory = await open({
@@ -12,6 +15,18 @@ function App() {
     });
     setPath(directory);
   };
+
+  useEffect(() => {
+    if(!path) return;
+    
+    invoke("get_media_types", {
+      path
+    }).then(console.log).catch(console.error);
+  }, [path]);
+
+  listen('image-found', (event) => {
+    setCurrentPath(event.payload as string);
+  });
 
   return (
     <main className="container">
@@ -23,6 +38,7 @@ function App() {
       ) : (
         <div>Organize Media</div>
       )}
+      {currentPath && <p>{currentPath}</p>}
     </main>
   );
 }
