@@ -60,6 +60,10 @@ h1 {
   text-align: center;
 }
 
+form {
+  margin: 0 auto;
+}
+
 input,
 button {
   border-radius: 8px;
@@ -72,6 +76,14 @@ button {
   background-color: #ffffff;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 10px 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #535bf2;
 }
 
 button {

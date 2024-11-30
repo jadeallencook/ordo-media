@@ -6,15 +6,17 @@ function App() {
   const [path, setPath] = useState<string>();
   const pathInputRef = (input: HTMLInputElement | null) =>
     input?.setAttribute("webkitdirectory", "true");
-  const handlePathForm = () => console.log(true);
+  const handlePathForm = ({ target }: any) => {
+    console.log({ target: target.getValue() });
+  };
 
   return (
     <main className="container">
       {!path ? (
-        <form onSubmit={handlePathForm}>
+        <form onChange={handlePathForm}>
           <h1>Select Folder To Organize</h1>
           <input type="file" multiple ref={pathInputRef} />
-          <input type="submit" value="Analyize" />
+          {path && <input type="submit" value="Analyize" />}
         </form>
       ) : (
         <div>Organize Media</div>
