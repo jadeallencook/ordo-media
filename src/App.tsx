@@ -3,7 +3,6 @@ import "./App.css";
 import { open } from "@tauri-apps/plugin-dialog";
 
 function App() {
-  // path of directory
   const [path, setPath] = useState<string | null>(null);
 
   const file = async () => {
