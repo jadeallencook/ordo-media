@@ -1,23 +1,26 @@
 import { useState } from "react";
 import "./App.css";
+import { open } from "@tauri-apps/plugin-dialog";
 
 function App() {
   // path of directory
-  const [path, setPath] = useState<string>();
-  const pathInputRef = (input: HTMLInputElement | null) =>
-    input?.setAttribute("webkitdirectory", "true");
-  const handlePathForm = ({ target }: any) => {
-    console.log({ target: target.getValue() });
+  const [path, setPath] = useState<string | null>(null);
+
+  const file = async () => {
+    const directory = await open({
+      multiple: false,
+      directory: true,
+    });
+    setPath(directory);
   };
 
   return (
     <main className="container">
       {!path ? (
-        <form onChange={handlePathForm}>
+        <section>
           <h1>Select Folder To Organize</h1>
-          <input type="file" multiple ref={pathInputRef} />
-          {path && <input type="submit" value="Analyize" />}
-        </form>
+          <button onClick={file}>Choose Directory</button>
+        </section>
       ) : (
         <div>Organize Media</div>
       )}
