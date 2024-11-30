@@ -45,6 +45,6 @@ cameras: ["Canon T3i"],
 orientation: ["vertical"]
 } => Stream
 
-- "/Last Summer/G123_32.jpg": { camera: "Canon T3i", "orientation": "horizonal" } (/Users/Joe Doe/Desktop/media-dump/misc)
+- "/Last Summer/G123_32.jpg": { camera: "Canon T3i", "orientation": "horizonal" } (/Users/Joe Doe/Desktop/media-dump/Misc)
 - "/Last Summer/G534_234.jpg": { camera: "Canon T3i", "orientation": "vertical" } (/Users/Joe Doe/Desktop/media-dump/Canon T3i Vertical)
-- "/Last Summer/HTRRETGH.mov": { camera: "iPhone", "orientation": "horizonal" } (/Users/Joe Doe/Desktop/media-dump/misc)
+- "/Last Summer/HTRRETGH.mov": { camera: "iPhone", "orientation": "horizonal" } (/Users/Joe Doe/Desktop/media-dump/Misc)
